@@ -5,21 +5,26 @@ import List from '../../components/lists';
 import { TaskInterface } from '../../types/TaskInterface';
 import style from './style.module.scss';
 
-function App() {
-  const [tasks,setTasks]= useState<TaskInterface[] | []>([{
-    task: "React",
-    time: "02:00:00"
-},{
-  task: "Javascript",
-  time: "01:00:00"  
-}]);
+export default function App() {
+  const [tasks,setTasks]= useState<TaskInterface[] | []>([]);
+  const [selected,setSelected]=useState<TaskInterface>();
+
+  function selectTask(selectedTask: TaskInterface){
+    setSelected(selectedTask);
+    setTasks(oldTasks => oldTasks.map(task => ({
+      ...task,
+      selected:(task.id==selectedTask.id?true:false)
+    })));
+  }
+
   return (
     <div className={style.AppStyle}>
       <Form setTasks={setTasks}/>
-      <List tasks={tasks}/>
+      <List 
+        tasks={tasks}
+        selectTask={selectTask}
+      />
       <Cronometer/>
     </div>
   );
 }
-
-export default App;

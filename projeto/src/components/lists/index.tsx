@@ -1,15 +1,16 @@
-import { TaskInterface } from "../../types/TaskInterface";
+import { ListInterface } from "../../types/ListInterface";
 import Item from "./item";
 import style from './style.module.scss';
 
-function List({tasks}:{tasks: TaskInterface[]}){
+function List({tasks,selectTask}:ListInterface){
     return (
         <aside className={style.taskList}>
             <h2>Today's studies</h2>
             <ul>
-                {tasks.map((item,index)=>(
+                {tasks.map((item)=>(
                     <Item 
-                        key={index}
+                        selectTask={selectTask}
+                        key={item.id}
                         {...item}
                     />
                 ))}
