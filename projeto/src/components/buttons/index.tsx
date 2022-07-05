@@ -3,8 +3,9 @@ import style from './style.module.scss'
 
 class Button extends React.Component<any, any>{
     render(){
+        const {type="button"} = this.props
         return (
-            <button className={style.button}>
+            <button type={type} className={style.button}>
                 {this.props.children}
             </button>
         )
