@@ -1,5 +1,5 @@
 import { ItemInterface } from '../../../types/ItemInterface';
-import style from '../style.module.scss';
+import style from './style.module.scss';
 
 export default function Item({task,time,selected,completed,id,selectTask}:ItemInterface){
     return (
