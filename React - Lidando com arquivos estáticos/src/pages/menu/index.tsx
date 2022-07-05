@@ -1,8 +1,12 @@
-import styles from './Foodmenu.module.scss'
+import styles from './foodmenu.module.scss'
 import logo from "assets/buyhoodlogo.png"
 import "normalize.css"
+import Search from './search'
+import { useState } from 'react'
+import Filter from 'pages/filter'
 
 export default function FoodMenu(){
+    const [search,setSearch]=useState("");
     return (
         <main>
             <nav className={styles.menu}>
@@ -13,6 +17,16 @@ export default function FoodMenu(){
                     Eat, code, love.
                 </div>
             </header>
+            <section className={styles.foodmenu}>
+                <h3 className={styles.foodmenu_title}>Menu</h3>
+                <Search
+                    search={search}
+                    setSearch={setSearch}
+                />
+                <div className={styles.cardapio_filtros}>
+                    <Filter/>
+                </div>
+            </section>
         </main>
     )
 }
