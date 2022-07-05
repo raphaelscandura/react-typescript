@@ -1,6 +1,7 @@
+import { TaskInterface } from '../../../types/TaskInterface';
 import style from '../style.module.scss';
 
-export default function Item({task,time}:{task:string,time:string}){
+export default function Item({task,time,selected,completed,id}:TaskInterface){
     return (
         <li className={style.item}>
                         <h3>

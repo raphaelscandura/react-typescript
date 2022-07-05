@@ -2,16 +2,30 @@ import React from "react";
 import Button from "../buttons";
 import style from './style.module.scss'
 import { TaskInterface } from "../../types/TaskInterface";
+import { v4 as uuidvs4 } from 'uuid';
 
 class Form extends React.Component<{setTasks: React.Dispatch<React.SetStateAction<TaskInterface[]>>}>{
-    state ={
+    initialState={
         task:"",
         time:"00:00"
     }
 
+    state = this.initialState
+
     addTask(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
-        this.props.setTasks(oldTasks=>[...oldTasks,{...this.state}])
+        this.props.setTasks(
+            oldTasks=>[
+                ...oldTasks,
+                {
+                    ...this.state,
+                    selected:false,
+                    completed:false,
+                    id: uuidvs4()
+                }
+            ]
+        )
+        this.setState(this.initialState);
     }
 
     render() {
