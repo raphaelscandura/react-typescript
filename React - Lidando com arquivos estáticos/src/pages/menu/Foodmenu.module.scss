@@ -1,6 +1,23 @@
+@import 'styles/_variables.scss';
+
 .menu{
-    padding: 20px 250px;
+    padding: 20px $horizontal-padding;
 }
 .menu_logo{
     width: 150px;
+}
+.header{
+    align-items: center;
+    background-image: url('/assets/foodmenu/foodmenu_header.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    display: flex;
+    padding: $horizontal-padding;
+    &_text{
+        color: white;
+        font-size: 5rem;
+        min-width: 400px;
+        width: 40%;
+    }
 }
