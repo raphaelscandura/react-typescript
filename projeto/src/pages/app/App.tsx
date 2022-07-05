@@ -17,6 +17,24 @@ export default function App() {
     })));
   }
 
+  function completeTask(){
+    if(selected){
+      setSelected(undefined);
+      setTasks(oldTasks => 
+        oldTasks.map(task => {
+        if(task.id==selected.id){
+          return {
+            ...task,
+            selected: false,
+            completed:true
+          }
+        }else{
+          return task;
+        }
+      }))
+    }
+  }
+
   return (
     <div className={style.AppStyle}>
       <Form setTasks={setTasks}/>
@@ -24,7 +42,10 @@ export default function App() {
         tasks={tasks}
         selectTask={selectTask}
       />
-      <Cronometer selected={selected}/>
+      <Cronometer 
+        selected={selected}
+        completeTask={completeTask}
+      />
     </div>
   );
 }

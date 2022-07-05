@@ -5,7 +5,7 @@ import { CronometerInterface } from "../../types/CronometerInterface";
 import { useEffect, useState } from "react";
 import { timeToSeconds } from "../../common/utils/time";
 
-export default function Cronometer({selected}:CronometerInterface){
+export default function Cronometer({selected,completeTask}:CronometerInterface){
     const[time,setTime] = useState<number>();
     
     useEffect(()=>{
@@ -16,8 +16,11 @@ export default function Cronometer({selected}:CronometerInterface){
 
     function countdown(counter:number=0){
         setTimeout(()=>{
-            setTime(counter-1)
-            return countdown(counter-1)
+            if(counter>0){
+                setTime(counter-1);
+                return countdown(counter-1);
+            }
+            completeTask();
         },1000);
     }
 
