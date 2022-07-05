@@ -1,10 +1,11 @@
-import styles from './Menu.module.scss'
+import styles from './Foodmenu.module.scss'
+import logo from "../../assets/buyhoodlogo.png"
 
-export default function Menu(){
+export default function FoodMenu(){
     return (
         <main>
-            <nav className="menu">
-
+            <nav className={styles.menu}>
+                <img src={logo} alt="Buyhood's logo" />
             </nav>
         </main>
     )
