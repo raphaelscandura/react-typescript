@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "../buttons";
 import style from './style.module.scss'
+import { TaskInterface } from "../../types/TaskInterface";
 
-class Form extends React.Component{
+class Form extends React.Component<{setTasks: React.Dispatch<React.SetStateAction<TaskInterface[]>>}>{
     state ={
         task:"",
         time:"00:00"
@@ -10,7 +11,7 @@ class Form extends React.Component{
 
     addTask(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
-        console.log('state: ', this.state);
+        this.props.setTasks(oldTasks=>[...oldTasks,{...this.state}])
     }
 
     render() {
