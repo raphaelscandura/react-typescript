@@ -14,6 +14,13 @@ export default function Cronometer({selected}:CronometerInterface){
         }
     },[selected])
 
+    function countdown(counter:number=0){
+        setTimeout(()=>{
+            setTime(counter-1)
+            return countdown(counter-1)
+        },1000);
+    }
+
     return (
         <div className={style.cronometer}>
             <p className={style.title}>Chose a card to start the cronometer</p>
@@ -22,7 +29,7 @@ export default function Cronometer({selected}:CronometerInterface){
                     time={time}
                 />
             </div>
-            <Button>
+            <Button onClick={()=>countdown(time)}>
                 Start!
             </Button>
         </div>
