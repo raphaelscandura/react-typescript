@@ -13,13 +13,14 @@ export default function Cronometer({selected}:CronometerInterface){
             setTime(timeToSeconds(selected.time));
         }
     },[selected])
-    
+
     return (
         <div className={style.cronometer}>
             <p className={style.title}>Chose a card to start the cronometer</p>
-            Time:{time}
             <div className={style.clockWrapper}>
-                <Clock/>
+                <Clock
+                    time={time}
+                />
             </div>
             <Button>
                 Start!
