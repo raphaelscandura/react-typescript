@@ -8,6 +8,7 @@ export default function Search({search,setSearch}:SearchInterface){
             <input 
                 value={search} 
                 onChange={(event) => setSearch(event.target.value)}
+                placeholder="Search"
             />
             <CgSearch
                 size={20}
