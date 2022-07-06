@@ -2,10 +2,18 @@ import foodmenu from 'data/foodmenu.json';
 import styles from './home.module.scss';
 import theme from 'styles/theme.module.scss';
 import ourHome from 'assets/our_home.png';
+import { useNavigate } from 'react-router-dom';
+import { PlateInterface } from 'types/PlateInterface';
 
 export default function Home(){
+	const navigate = useNavigate();
 	let recommendedPlates = [...foodmenu];
 	recommendedPlates = recommendedPlates.sort(()=>0.5 - Math.random()).splice(0,3);
+
+	function redirectMoreInfo(plate: PlateInterface){
+		navigate(`/plate/${plate.id}}`,{state:{plate}});
+	}
+
 	return(
 		<section>
 			<h3 className={theme.title}>Recommendations</h3>
@@ -15,7 +23,12 @@ export default function Home(){
 						<div className={styles.recommended_image}>
 							<img src={item.photo} alt={item.title} />
 						</div>
-						<button className={styles.recommended_button}>More</button>
+						<button 
+							className={styles.recommended_button}
+							onClick={() => redirectMoreInfo(item)}
+						>
+							More
+						</button>
 					</div>
 				))}
 			</div>

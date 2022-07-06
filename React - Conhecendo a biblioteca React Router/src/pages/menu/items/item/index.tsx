@@ -1,13 +1,18 @@
 import styles from './item.module.scss';
 import foods from 'data/foodmenu.json';
-import classnames from 'classnames';
+import PlateTags from 'components/platetags';
+import { useNavigate } from 'react-router-dom';
 
 type ItemsInterface = typeof foods[0];
 
 export default function Item(props:ItemsInterface){
-	const {title,description,category,price,serving,size,photo} = props;
+	const {id,title,description,photo} = props;
+	const navigate=useNavigate();
 	return (
-		<div className={styles.item}>
+		<div 
+			className={styles.item}
+			onClick={()=>navigate(`/plate/${id}`)}
+		>
 			<div className={styles.item_image}>
 				<img src={photo} alt={title} />
 			</div>
@@ -16,23 +21,7 @@ export default function Item(props:ItemsInterface){
 					<h2>{title}</h2>
 					<p>{description}</p>
 				</div>
-				<div className={styles.item_tags}>
-					<div className={classnames({
-						[styles.item_type]:true,
-						[styles[`item_type_${category.label.toLowerCase()}`]]:true
-					})}>
-						{category.label}
-					</div>
-					<div className={styles.item_portion}>
-						{size}
-					</div>
-					<div className={styles.item_amountppl}>
-                        Enough for {serving} {serving>1?'people':'person'}
-					</div>
-					<div className={styles.item_price}>
-                        ${price.toFixed(2)}
-					</div>
-				</div>
+				<PlateTags {...props}/>
 			</div>
 		</div>
 	);
