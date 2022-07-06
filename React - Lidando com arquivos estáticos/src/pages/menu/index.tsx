@@ -5,6 +5,7 @@ import Search from './search'
 import { useState } from 'react'
 import Filter from 'pages/menu/filter'
 import Ordering from './ordering'
+import Items from './items'
 
 export default function FoodMenu(){
     const [search,setSearch]=useState("");
@@ -21,7 +22,7 @@ export default function FoodMenu(){
             </nav>
             <header className={styles.header}>
                 <div className={styles.header_text}>
-                    Eat, code, love.
+                    Eat, code, repeat.
                 </div>
             </header>
             <section className={styles.foodmenu}>
@@ -30,7 +31,7 @@ export default function FoodMenu(){
                     search={search}
                     setSearch={setSearch}
                 />
-                <div className={styles.cardapio_filtros}>
+                <div className={styles.foodmenu_filters}>
                     <Filter
                         filter={filter}
                         setFilter={setFilter}
@@ -40,6 +41,11 @@ export default function FoodMenu(){
                         setOrdering={setOrdering}
                     />
                 </div>
+                <Items
+                    ordering={ordering}
+                    filter={filter}
+                    search={search}
+                />
             </section>
         </main>
     )

@@ -1,18 +1,18 @@
 [
     {
-      "label": "Massas",
+      "label": "Pasta",
       "id": 1
     },
     {
-      "label": "Carnes",
+      "label": "Meat",
       "id": 2
     },
     {
-      "label": "Combos",
+      "label": "Combo",
       "id": 3
     },
     {
-      "label": "Veganos",
+      "label": "Vegan",
       "id": 4
     }
   ]
