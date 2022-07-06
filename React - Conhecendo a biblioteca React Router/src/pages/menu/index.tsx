@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Filter from 'pages/menu/filter';
 import Ordering from './ordering';
 import Items from './items';
+import theme from 'styles/theme.module.scss';
 
 export default function FoodMenu(){
 	const [search,setSearch]=useState('');
@@ -12,7 +13,7 @@ export default function FoodMenu(){
 	const [ordering,setOrdering]=useState('');
 	return (
 		<section className={styles.foodmenu}>
-			<h3 className={styles.foodmenu_title}>Menu</h3>
+			<h3 className={theme.title}>Menu</h3>
 			<Search
 				search={search}
 				setSearch={setSearch}

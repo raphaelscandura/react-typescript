@@ -1,5 +1,6 @@
 import styles from './template.module.scss';
 import {Outlet} from 'react-router-dom';
+import theme from 'styles/theme.module.scss';
 
 export default function Template(){
 	return (
@@ -9,7 +10,7 @@ export default function Template(){
 					Eat, code, repeat.
 				</div>
 			</header>
-			<div>
+			<div className={theme.container}>
 				<Outlet/>
 			</div>
 		</>
