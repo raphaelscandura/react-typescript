@@ -1,4 +1,5 @@
 import Navbar from 'components/navbar';
+import About from 'pages/about';
 import Home from 'pages/home';
 import FoodMenu from 'pages/menu';
 import Template from 'pages/template';
@@ -13,6 +14,7 @@ export default function AppRouter(){
 					<Route path='/' element={<Template/>}>
 						<Route index element={<Home/>}/>
 						<Route path='foodmenu' element={<FoodMenu/>}/>
+						<Route path='about' element={<About/>}/>
 					</Route>
 				</Routes>
 			</Router>

@@ -1,6 +1,7 @@
 import foodmenu from 'data/foodmenu.json';
 import styles from './home.module.scss';
 import theme from 'styles/theme.module.scss';
+import ourHome from 'assets/our_home.png';
 
 export default function Home(){
 	let recommendedPlates = [...foodmenu];
@@ -17,6 +18,13 @@ export default function Home(){
 						<button className={styles.recommended_button}>More</button>
 					</div>
 				))}
+			</div>
+			<h3 className={theme.title}>Location</h3>
+			<div className={styles.ourHome}>
+				<img src={ourHome} alt="Buyhood's location" />
+				<div className={styles.ourHome_address}>
+					3600 S Las Vegas Blvd, Las Vegas <br/><br/> NV 89109, United States
+				</div>
 			</div>
 		</section>
 	);
