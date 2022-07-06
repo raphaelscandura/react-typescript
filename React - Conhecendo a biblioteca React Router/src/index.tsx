@@ -1,15 +1,13 @@
-import Home from 'pages/home';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import FoodMenu from './pages/menu';
+import Router from './routes';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
 	<React.StrictMode>
-		<Home/>
-		{/* <FoodMenu/> */}
+		<Router/>
 	</React.StrictMode>
 );
