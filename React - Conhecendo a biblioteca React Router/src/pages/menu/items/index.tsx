@@ -1,4 +1,4 @@
-import items from './items.json';
+import items from 'data/foodmenu.json';
 import Item from './item/index';
 import styles from './items.module.scss';
 import ItemInterface from 'types/ItemInterface';

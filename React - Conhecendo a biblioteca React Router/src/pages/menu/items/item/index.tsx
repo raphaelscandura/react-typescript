@@ -1,5 +1,5 @@
 import styles from './item.module.scss';
-import foods from '../items.json';
+import foods from 'data/foodmenu.json';
 import classnames from 'classnames';
 
 type ItemsInterface = typeof foods[0];
