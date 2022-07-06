@@ -7,6 +7,7 @@ import Filter from 'pages/filter'
 
 export default function FoodMenu(){
     const [search,setSearch]=useState("");
+    const [filter,setFilter]=useState<number|null>(null);
     return (
         <main>
             <nav className={styles.menu}>
@@ -24,7 +25,10 @@ export default function FoodMenu(){
                     setSearch={setSearch}
                 />
                 <div className={styles.cardapio_filtros}>
-                    <Filter/>
+                    <Filter
+                        filter={filter}
+                        setFilter={setFilter}
+                    />
                 </div>
             </section>
         </main>
