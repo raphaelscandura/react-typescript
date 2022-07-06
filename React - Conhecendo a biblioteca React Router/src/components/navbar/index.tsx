@@ -1,6 +1,6 @@
-import logo from 'assets/buyhoodlogo.png';
 import styles from './navbar.module.scss';
 import {Link} from 'react-router-dom';
+import Logo from 'components/logo';
 
 export default function Navbar(){
 	const routes=[
@@ -19,11 +19,7 @@ export default function Navbar(){
 	];
 	return (
 		<nav className={styles.navbar}>
-			<img 
-				src={logo} 
-				alt="Buyhood's logo"
-				className={styles.navbar_logo}
-			/>
+			<Logo/>
 			<ul className={styles.navbar_list}>
 				{routes.map((route,index)=>(
 					<li key={index} className={styles.navbar_link}>

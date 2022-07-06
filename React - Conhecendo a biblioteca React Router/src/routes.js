@@ -1,3 +1,4 @@
+import Footer from 'components/footer';
 import Navbar from 'components/navbar';
 import About from 'pages/about';
 import Home from 'pages/home';
@@ -17,6 +18,7 @@ export default function AppRouter(){
 						<Route path='about' element={<About/>}/>
 					</Route>
 				</Routes>
+				<Footer/>
 			</Router>
 		</main>
 	);
