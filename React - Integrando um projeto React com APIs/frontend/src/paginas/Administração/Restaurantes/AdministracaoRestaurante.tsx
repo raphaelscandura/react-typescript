@@ -21,6 +21,9 @@ export default function AdministracaoRestaurantes(){
 						<TableCell>
 							Nome
 						</TableCell>
+						<TableCell>
+							Ações
+						</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -28,6 +31,10 @@ export default function AdministracaoRestaurantes(){
 						<TableRow key={item.id}>
 							<TableCell>
 								{item.nome}
+							</TableCell>
+							<TableCell>
+								[<Link to={`/admin/restaurantes/editar/${item.id}`}>Editar</Link>]
+								[<Link to={`/admin/restaurantes/excluir/${item.id}`}>Excluir</Link>]
 							</TableCell>
 						</TableRow>
 					))}
