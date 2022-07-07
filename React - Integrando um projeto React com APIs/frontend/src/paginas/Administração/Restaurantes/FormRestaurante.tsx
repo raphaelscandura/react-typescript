@@ -1,8 +1,8 @@
 import { TextField,Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
+import { useParams } from "react-router-dom";
 import http_v2 from '../../../http/axios_v2';
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import IRestaurante from "../../../interfaces/IRestaurante";
 
 export default function FormRestaurante(){
@@ -34,12 +34,12 @@ export default function FormRestaurante(){
 	}
 
 	return (
-		<Box sx={({display:'flex',flexDirection:"column",alignItems:"center"})}>
+		<Box sx={({display:'flex',flexDirection:"column",alignItems:"center",flexGrow:1})}>
 			<Typography component="h1" variant="h6">Formulário de Restaurantes</Typography>
 			<Box 
 				component="form" 
 				onSubmit={submitForm}
-				sx={{marginTop:2}}
+				sx={{marginTop:2,width:'100%'}}
 			>
 				<TextField 
 					id="standard-basic" 
@@ -60,6 +60,5 @@ export default function FormRestaurante(){
 				</Button>
 			</Box>
 		</Box>
-		
 	)
 }

@@ -22,7 +22,6 @@ export default function AdministracaoRestaurantes(){
 
 	return (
 		<TableContainer>
-			<Link to="/admin/restaurantes/novo">Adicionar Restaurante</Link>
 			<Table>
 				<TableHead>
 					<TableRow>
