@@ -1,5 +1,6 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig } from 'axios';
 import { useEffect, useState } from 'react';
+import http_v1 from '../../http/axios_v1';
 import { IPaginacao } from '../../interfaces/IPaginacao';
 import IRestaurante from '../../interfaces/IRestaurante';
 import style from './ListaRestaurantes.module.scss';
@@ -22,7 +23,7 @@ const ListaRestaurantes = () => {
   // agora, o carregarDados recebe opcionalmente as opções de configuração do axios
   const carregarDados = (url: string, opcoes: AxiosRequestConfig = {}) => {
 
-    axios.get<IPaginacao<IRestaurante>>(url, opcoes)
+    http_v1.get<IPaginacao<IRestaurante>>(url, opcoes)
       .then(resposta => {
         setRestaurantes(resposta.data.results)
         setProximaPagina(resposta.data.next)
@@ -44,12 +45,12 @@ const ListaRestaurantes = () => {
     if (busca) {
       opcoes.params.search = busca
     }
-    carregarDados('http://localhost:8000/api/v1/restaurantes/', opcoes)
+    carregarDados('restaurantes/', opcoes)
   }
 
   useEffect(() => {
     // obter restaurantes
-    carregarDados('http://localhost:8000/api/v1/restaurantes/')
+    carregarDados('restaurantes/')
   }, [])
 
   return (<section className={style.ListaRestaurantes}>

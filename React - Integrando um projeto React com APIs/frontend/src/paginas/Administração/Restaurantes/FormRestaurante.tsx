@@ -1,6 +1,6 @@
 import { TextField,Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import axios from "axios";
+import http_v2 from '../../../http/axios_v2';
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import IRestaurante from "../../../interfaces/IRestaurante";
@@ -11,7 +11,7 @@ export default function FormRestaurante(){
 
 	useEffect(()=>{
 		if(params.id){
-			axios.get<IRestaurante>(`http://localhost:8000/api/v2/restaurantes/${params.id}/`)
+			http_v2.get<IRestaurante>(`restaurantes/${params.id}/`)
 				.then(response => setNomeRestaurante(response.data.nome));
 		}
 	},[params]);
@@ -19,13 +19,13 @@ export default function FormRestaurante(){
 	function submitForm(event:React.FormEvent<HTMLFormElement>){
 		event.preventDefault();
 		if(params.id){
-			axios.put(`http://localhost:8000/api/v2/restaurantes/${params.id}/`,{
+			http_v2.put(`restaurantes/${params.id}/`,{
 				nome:nomeRestaurante
 			}).then(()=>{
 				window.location.href ='http://localhost:3000/admin/restaurantes';
 			})
 		}else{
-			axios.post('http://localhost:8000/api/v2/restaurantes/',{
+			http_v2.post('restaurantes/',{
 				nome:nomeRestaurante
 			}).then(()=>{
 				window.location.href ='http://localhost:3000/admin/restaurantes';
