@@ -2,6 +2,7 @@ import { TableBody, TableCell, TableContainer, TableHead, TableRow, Table } from
 import axios from "axios";
 import { useEffect, useState } from "react";
 import IRestaurante from "../../../interfaces/IRestaurante";
+import { Link } from 'react-router-dom';
 
 export default function AdministracaoRestaurantes(){
 	const [restaurantes,setRestaurantes]=useState<IRestaurante[]>([]);
@@ -13,6 +14,7 @@ export default function AdministracaoRestaurantes(){
 
 	return (
 		<TableContainer>
+			<Link to="/admin/restaurantes/novo">Adicionar Restaurante</Link>
 			<Table>
 				<TableHead>
 					<TableRow>
