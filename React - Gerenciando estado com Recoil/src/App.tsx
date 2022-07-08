@@ -6,17 +6,6 @@ import ListaDeEventos from './components/ListaDeEventos';
 import {RecoilRoot} from 'recoil';
 
 function App() {
-
-  //TODO: USE RECOIL TO REPLACE THIS PROP
-  const alterarStatusEvento = (id: number) => {
-
-  }
-  
-  //TODO: USE RECOIL TO REPLACE THIS PROP
-  const aplicarFiltro = (data: Date | null) => {
-
-  }
-
   return (
     <RecoilRoot>
       <div className={style.App}>
@@ -26,7 +15,7 @@ function App() {
           </Card>
           <hr />
           <Card>
-            <ListaDeEventos aoFiltroAplicado={aplicarFiltro} aoAlterarStatus={alterarStatusEvento}/>
+            <ListaDeEventos/>
           </Card>
         </div>
         <div className={style.Coluna}>
