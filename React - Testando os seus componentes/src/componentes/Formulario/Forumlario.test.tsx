@@ -23,30 +23,69 @@ test('se o imput estiver vazio, novos participantes não podem ser adicionados',
 })
 
 test('adicionar um participante caso exista um nome preenchido',()=>{
-        //renderizar o componente em questão
-        render(<RecoilRoot>
-                <Formulario/>
-            </RecoilRoot>)
+    //renderizar o componente em questão
+    render(<RecoilRoot>
+            <Formulario/>
+        </RecoilRoot>)
 
-        //encontrar o input no DOM
-        const input=screen.getByPlaceholderText('Insira os nomes dos participantes')
-    
-        //encontrar o botão de submit
-        const botao=screen.getByRole('button')
+    //encontrar o input no DOM
+    const input=screen.getByPlaceholderText('Insira os nomes dos participantes')
 
-        //inserir um valor no input
-        fireEvent.change(input,{
-            target:{
-                value: 'nome de teste'
-            }
-        })
+    //encontrar o botão de submit
+    const botao=screen.getByRole('button')
 
-        //clicar no botão de submeter
-        fireEvent.click(botao)
+    //inserir um valor no input
+    fireEvent.change(input,{
+        target:{
+            value: 'nome de teste'
+        }
+    })
 
-        //garantir que o input esteja com o foco ativo
-        expect(input).toHaveFocus()
+    //clicar no botão de submeter
+    fireEvent.click(botao)
 
-        //garantir que o input não tenha um valor
-        expect(input).toHaveValue("")
+    //garantir que o input esteja com o foco ativo
+    expect(input).toHaveFocus()
+
+    //garantir que o input não tenha um valor
+    expect(input).toHaveValue("")
+})
+
+test('nomes duplicados não podem ser adicionados na lista',()=>{
+    //renderizar o componente em questão
+    render(<RecoilRoot>
+        <Formulario/>
+    </RecoilRoot>)
+
+    //encontrar o input no DOM
+    const input=screen.getByPlaceholderText('Insira os nomes dos participantes')
+
+    //encontrar o botão de submit
+    const botao=screen.getByRole('button')
+
+    //inserir um valor no input
+    fireEvent.change(input,{
+        target:{
+            value: 'nome de teste'
+        }
+    })
+
+    //clicar no botão de submeter
+    fireEvent.click(botao)
+
+    //inserir um valor no input
+    fireEvent.change(input,{
+        target:{
+            value: 'nome de teste'
+        }
+    })
+
+    //clicar no botão de submeter de novo
+    fireEvent.click(botao)
+
+    //encontrar alerta de erro caso o nome a ser inserido seja duplicaod
+    const mensagemDeErro=screen.getByRole('alert')
+
+    //validar mensagem
+    expect(mensagemDeErro.textContent).toBe('Nomes duplicados não são permitidos!')
 })
