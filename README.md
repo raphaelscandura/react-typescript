@@ -26,7 +26,6 @@ Implementar testes no React. Utilizar o Jest para realizar asserções, diferent
 - Luiz Fernando Ribeiro
 - Vinny Neves
 
-<!--
+
 # Meu progresso na formação
-Formação completa, certificado disponível [aqui](https://cursos.alura.com.br/degree/certificate/257b7ce8-7c3f-47f8-bd1c-81b8d7299d5e).
--->
+Formação completa, certificado disponível [aqui](https://cursos.alura.com.br/degree/certificate/bdbf759f-28d1-4006-a708-d22fb9f5b101).
